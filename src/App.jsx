@@ -1,31 +1,22 @@
 import { useState } from 'react'
-import charlieLogo from './assets/charlie_logo.png'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { AppProvider } from './contexts/AppContext';
+import HomePage from './pages/HomePage/HomePage';
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="" target="_blank">
-          <img src={charlieLogo} className="logo" alt="logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <AppProvider>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </div>
+      </AppProvider>
+    </Router>
+  );
+};
 
-export default App
+export default App;
