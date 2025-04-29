@@ -34,7 +34,7 @@ const HomePage = () => {
 
           <li>
             <a 
-              href="/Charlie_Harland-CV.pdf" 
+              href={`${import.meta.env.BASE_URL}Charlie_Harland-CV.pdf`} 
               target="_blank"
               rel="noopener noreferrer"
             >
