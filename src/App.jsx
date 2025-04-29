@@ -1,13 +1,15 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { HashRouter, BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { AppProvider } from './contexts/AppContext';
 import HomePage from './pages/HomePage/HomePage';
+
+// NOTE: BrowserRouter doesnt work with GH Pages but can be reverted back to when deploying to AWS
 
 
 function App() {
 
   return (
-    <Router>
+    <HashRouter>
       <AppProvider>
         <div className="content">
           <Routes>
@@ -15,7 +17,7 @@ function App() {
           </Routes>
         </div>
       </AppProvider>
-    </Router>
+    </HashRouter>
   );
 };
 
